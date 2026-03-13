@@ -14,7 +14,11 @@ The Detection Lab project established a virtualized cybersecurity environment de
 - Installation and configuration of Ubuntu Linux as the operating system for multiple virtual machines.
 - Creation and management of multiple virtual machines to simulate a SOC monitoring environment.
 - Installation and configuration of a Wazuh SIEM platform on Ubuntu Linux.
-- Configuration of Wazuh agents for endpoint monitoring and centralized log collection.
+- Configuration of Wazuh agents for endpoint monitoring and centralized log collection.# Detection Lab
+
+- ## Objective
+
+- The Detection Lab project established a virtualized cybersecurity environment designed to simulate and detect real-world attack activity. Using VMware Workstation Pro, multiple Ubuntu virtual machines were deployed to replicate a basic Security Operations Center (SOC) monitoring architecture. The lab focused on implementing a Wazuh SIEM platform, generating attack telemetry through simulated SSH brute-force attempts, and analyzing authentication logs to detect malicious behavior. The goal was to demonstrate how security monitoring tools identify attack patterns and enable incident response actions such as blocking malicious IP addresses.
 - Understanding of Linux authentication logs and SSH security monitoring.
 - Detection and analysis of SSH brute-force login attempts through SIEM alerts.
 - Investigation of security events to identify attacker IP addresses and authentication patterns.
@@ -104,3 +108,11 @@ After identifying the malicious source IP address, a firewall rule was implement
 After applying the firewall rule, the attacker machine was no longer able to establish an SSH connection to the monitored endpoint, confirming the successful mitigation of the attack.
 
 <img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/010eeb0d-1d81-41d4-b178-6ce65a887c31" />
+
+
+## Challenges & Lessons Learned
+
+- **Wazuh agent connectivity** required careful attention to the manager IP configuration in `ossec.conf` on the victim VM — an incorrect IP caused the agent to appear offline in the dashboard.
+- **Alert tuning** — Wazuh's default rules triggered alerts at relatively low thresholds, which in a real environment could generate noise. This highlighted the importance of tuning detection rules to reduce false positives.
+- **iptables persistence** — the firewall rule applied during incident response does not survive a reboot by default. In production, rules would need to be saved using `iptables-save` or managed through a persistent firewall tool like `ufw`.
+- **Key takeaway:** Even a simple brute-force scenario demonstrates the full SOC workflow — log ingestion, alert triage, investigation, and containment — reinforcing why each step matters in a real incident.
