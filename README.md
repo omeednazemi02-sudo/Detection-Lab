@@ -24,8 +24,6 @@ The Detection Lab project established a virtualized cybersecurity environment de
 - OpenSSH to simulate remote login attempts and generate authentication logs.
 
 ## Steps
-## Steps
-## Steps
 
 ### Step 1 – Wazuh Installation
 
