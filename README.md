@@ -3,6 +3,11 @@
 ## Objective
 The Detection Lab project established a virtualized cybersecurity environment designed to simulate and detect real-world attack activity. Using VMware Workstation Pro, multiple Ubuntu virtual machines were deployed to replicate a basic Security Operations Center (SOC) monitoring architecture. The lab focused on implementing a Wazuh SIEM platform, generating attack telemetry through simulated SSH brute-force attempts, and analyzing authentication logs to detect malicious behavior. The goal was to demonstrate how security monitoring tools identify attack patterns and enable incident response actions such as blocking malicious IP addresses.
 
+## Lab Architecture
+
+<img width="1032" height="728" alt="image" src="https://github.com/user-attachments/assets/af3ece62-b98b-4b1b-98fc-1121e298f63c" />
+
+
 ### Skills Learned
 
 - Deployment of a virtual cybersecurity lab environment using VMware Workstation Pro.
